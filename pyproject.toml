@@ -1,0 +1,14 @@
+[tool.black]
+line-length = 120
+
+[tool.mypy]
+strict = true
+
+[[tool.mypy.overrides]]
+module = ["math_expression.*"]
+ignore_errors = true
+
+[tool.pylint]
+max-line-length = 120
+disable=['missing-module-docstring']
+ignore-paths=['math_expression', 'venv', '^test_*.py$']

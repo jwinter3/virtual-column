@@ -523,7 +523,7 @@ def test_expression_with_nested_parenthesis() -> None:
     )
 
 
-def test_empty_result_when_operand_at_end_of_role() -> None:
+def test_empty_result_when_operator_at_end_of_role() -> None:
     df = pd.DataFrame([[1, 2, 3]] * 2, columns=["label_one", "label_two", "label_three"])
     df_result = add_virtual_column(df, "2*label_three+", "label_four")
     assert df_result.empty, (
@@ -531,7 +531,7 @@ def test_empty_result_when_operand_at_end_of_role() -> None:
     )
 
 
-def test_empty_result_when_operand_at_start_of_role() -> None:
+def test_empty_result_when_operator_at_start_of_role() -> None:
     df = pd.DataFrame([[1, 2, 3]] * 2, columns=["label_one", "label_two", "label_three"])
     df_result = add_virtual_column(df, "*2*label_three", "label_four")
     assert df_result.empty, (
@@ -548,7 +548,7 @@ def test_empty_result_when_column_name_in_df_is_invalid() -> None:
     )
 
 
-def test_empty_result_when_invalid_operand() -> None:
+def test_empty_result_when_invalid_operator() -> None:
     df = pd.DataFrame([[1, 2, 3]] * 2, columns=["label_one", "label_two", "label_three"])
     df_result = add_virtual_column(df, "label_three/2", "label_four")
     assert df_result.empty, (
